@@ -30,5 +30,5 @@ services:
       POSTGRES_PASSWORD: coding_test_password
       POSTGRES_DB: datatys_db
     volumes:
-      - ./sql/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
-      - ./sql/insert.sql:/docker-entrypoint-initdb.d/2-insert.sql
+      - ./src/sql/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
+      - ./src/sql/insert.sql:/docker-entrypoint-initdb.d/2-insert.sql
