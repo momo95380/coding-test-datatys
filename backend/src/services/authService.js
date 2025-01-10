@@ -21,12 +21,12 @@ const hashPassword = (email, password) => shajs('sha256').update(`${email}${pass
 const authenticateUser = async (email, password) => {
   const user = await userModel.getUserByEmail(email);
   if (!user) {
-    throw new Error('Invalid credentials');
+    throw new Error('Bad credentials');
   }
 
   const hashedPassword = hashPassword(email, password);
   if (hashedPassword !== user.password) {
-    throw new Error('Invalid credentials');
+    throw new Error('Bad credentials');
   }
 
   const token = generateToken({
