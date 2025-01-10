@@ -7,11 +7,13 @@ import {
 
 import ProfilePage from '../pages/profile';
 import LoginPage from '../pages/LoginPage';
+import RegisterPage from '../pages/RegisterPage';
 
 function Router() {
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
       <Route
         path="/profile"
         element={<ProfilePage />}
