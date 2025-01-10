@@ -3,7 +3,7 @@ import React, {
   useState,
   useEffect,
 } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import login, { register } from '../api/auth';
@@ -21,6 +21,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const fetchUser = async () => {
     const token = localStorage.getItem('token');
@@ -34,10 +35,12 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  // Fetch user data on mount
+  // Fetch user data only when on profile route
   useEffect(() => {
-    fetchUser();
-  }, []);
+    if (location.pathname === '/profile') {
+      fetchUser();
+    }
+  }, [location.pathname]);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
