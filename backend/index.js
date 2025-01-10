@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const morganMiddleware = require('./middlewares/logger');
+const morganMiddleware = require('./src/middlewares/logger');
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const port = 3002;
