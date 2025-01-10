@@ -1,8 +1,10 @@
 import React from 'react';
 import { CssVarsProvider, extendTheme } from '@mui/joy/styles';
+import { BrowserRouter } from 'react-router-dom';
 
-import ProfilePage from './pages/profile';
 import './App.css';
+import AuthProvider from './auth/AuthProvider';
+import Router from './router/Router';
 
 function App() {
   const theme = extendTheme({
@@ -26,9 +28,13 @@ function App() {
   });
 
   return (
-    <CssVarsProvider theme={theme}>
-      <ProfilePage />
-    </CssVarsProvider>
+    <BrowserRouter>
+      <CssVarsProvider theme={theme}>
+        <AuthProvider>
+          <Router />
+        </AuthProvider>
+      </CssVarsProvider>
+    </BrowserRouter>
   );
 }
 
