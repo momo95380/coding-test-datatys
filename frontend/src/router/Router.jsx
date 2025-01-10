@@ -5,7 +5,7 @@ import {
   Navigate,
 } from 'react-router-dom';
 
-import ProfilePage from '../pages/profile';
+import ProfilePage from '../pages/ProfilePage';
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 
